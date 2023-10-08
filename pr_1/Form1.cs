@@ -40,8 +40,8 @@ namespace pr_1
 
         private void backgroundButton_Click(object sender, EventArgs e)
         {
-            //close the form
-            this.Close();
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+                pictureBox1.BackColor = colorDialog1.Color;
         }
 
         private void closeButton_Click(object sender, EventArgs e)
