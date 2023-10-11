@@ -14,16 +14,16 @@ namespace pr_2
 {
     public partial class Form1 : Form
     {
-        Random randomizer = new Random();
-        int addend1;
+        Random randomizer = new Random(); // класс рандом для случайных чисел
+        int addend1; //переменная сложения
         int addend2;
-        int minuend;
+        int minuend; //переменная вычитания
         int subtrahend;
-        int multiplicand;
+        int multiplicand; //Переменая умножения
         int multiplier;
-        int dividend;
+        int dividend; //переменая деления
         int divisor;
-        int timeLeft;
+        int timeLeft; //переменная отсчёта времени
         public Form1()
         {
             InitializeComponent();
@@ -40,25 +40,25 @@ namespace pr_2
         }
         public void StartTheQuiz()
         {
-            addend1 = randomizer.Next(51);
+            addend1 = randomizer.Next(51); // Генерируем случайное число от 0 до 50 и присваиваем его переменной
             addend2 = randomizer.Next(51);
-            plusLeftLabel.Text = addend1.ToString();
+            plusLeftLabel.Text = addend1.ToString(); // Преобразуем значение addend1 в строку и устанавливаем его в качестве текста для plusLeftLabel
             plusRightLabel.Text = addend2.ToString();
-            sum.Value = 0;
-            minuend = randomizer.Next(1, 101);
-            subtrahend = randomizer.Next(1, minuend);
-            minusLeftLabel.Text = minuend.ToString();
+            sum.Value = 0; // Устанавливаем значение sum равным 0
+            minuend = randomizer.Next(1, 101); // Генерируем случайное число от 1 до 100 и присваиваем его переменной minuend
+            subtrahend = randomizer.Next(1, minuend); // Генерируем случайное число от 1 до minuend и присваиваем его переменной subtrahend
+            minusLeftLabel.Text = minuend.ToString(); // Преобразуем значение minuend в строку и устанавливаем его в качестве текста для minusLeftLabel
             minusRightLabel.Text = subtrahend.ToString();
             difference.Value = 0;
-            multiplicand = randomizer.Next(2, 11);
+            multiplicand = randomizer.Next(2, 11); // Генерируем случайное число от 2 до 10 и присваиваем его переменной multiplicand
             multiplier = randomizer.Next(2, 11);
             timesLeftLabel.Text = multiplicand.ToString();
             timesRightLabel.Text = multiplier.ToString();
             product.Value = 0;
             divisor = randomizer.Next(2, 11);
             int temporaryQuotient = randomizer.Next(2, 11);
-            dividend = divisor * temporaryQuotient;
-            dividedLeftLabel.Text = dividend.ToString();
+            dividend = divisor * temporaryQuotient; // Умножаем divisor на temporaryQuotient и присваиваем результат переменной dividend
+            dividedLeftLabel.Text = dividend.ToString(); // Преобразуем значение dividend в строку и устанавливаем его в качестве текста для dividedLeftLabel
             dividedRightLabel.Text = divisor.ToString();
             quotient.Value = 0;
             timeLeft = 30;
@@ -68,40 +68,40 @@ namespace pr_2
         }
         private bool CheckTheAnswer()
         {
-            if ((addend1 + addend2 == sum.Value)
-                && (minuend - subtrahend == difference.Value)
-                && (multiplicand * multiplier == product.Value)
-                && (dividend / divisor == quotient.Value))
+            if ((addend1 + addend2 == sum.Value) // Проверяет, является ли сумма addend1 и addend2 равной значению sum.Value,
+                && (minuend - subtrahend == difference.Value) // разность minuend и subtrahend равна значению difference.Value,
+                && (multiplicand * multiplier == product.Value) // произведение multiplicand и multiplier равно значению product.Value
+                && (dividend / divisor == quotient.Value)) // и частное dividend и divisor равно значению quotient.Value
                 return true;
-            else
+            else // Возвращает true, если все условия выполняются, иначе возвращает false
                 return false;
         }
         private void startButton_Click(object sender, EventArgs e)
         {
             StartTheQuiz();
-            startButton.Enabled = false;
+            startButton.Enabled = false; // Отключение кнопки "Старт"
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (CheckTheAnswer())
+            if (CheckTheAnswer()) // Проверка ответа пользователя
             {
                 timer1.Stop();
-                MessageBox.Show("Красаучег, давай краба у тебя всё верно!");
-                startButton.Enabled = true;
+                MessageBox.Show("давай краба у тебя всё верно!", "Красаучег");
+                startButton.Enabled = true; // Включение кнопки "Старт"
             }
-            else if (timeLeft > 0)
+            else if (timeLeft > 0) // Проверка, осталось ли время
             {
-                timeLeft = timeLeft - 1;
-                timeLabel.Text = timeLeft + " seconds";
+                timeLeft = timeLeft - 1; // Уменьшение времени на 1 секунду
+                timeLabel.Text = timeLeft + " seconds"; // Обновление текста на метке времени
             }
             else
             {
                 timer1.Stop();
                 timeLabel.Text = "Time's up";
-                MessageBox.Show("Unlucky, пробуй ещё раз!");
-                sum.Value = addend1 + addend2;
-                difference.Value = minuend - subtrahend;
+                MessageBox.Show("пробуй ещё раз!", "Сори ты нуб");
+                sum.Value = addend1 + addend2; // Обновление значения суммы
+                difference.Value = minuend - subtrahend; // Обновление значения разницы
                 product.Value = multiplicand * multiplier;
                 quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
@@ -115,11 +115,11 @@ namespace pr_2
 
         private void answer_Enter(object sender, EventArgs e)
         {
-            NumericUpDown answerBox = sender as NumericUpDown;
-            if (answerBox != null )
+            NumericUpDown answerBox = sender as NumericUpDown; // Эта строка кода приводит объект "sender" к типу NumericUpDown и присваивает его переменной "answerBox".
+            if (answerBox != null) // Эта строка кода приводит объект "sender" к типу NumericUpDown и присваивает его переменной "answerBox".
             {
-                int lenghtOfAnswer = answerBox.Value.ToString().Length;
-                answerBox.Select (0, lenghtOfAnswer);
+                int lenghtOfAnswer = answerBox.Value.ToString().Length; // Эта строка кода вычисляет длину значения в контроле "answerBox" и присваивает ее переменной "lengthOfAnswer"
+                answerBox.Select (0, lenghtOfAnswer); // Эта строка кода выбирает всё значение в контроле "answerBox", указывая начальный индекс 0 и длину "lengthOfAnswer"
             }
         }
 
@@ -156,6 +156,11 @@ namespace pr_2
                 int lenghtOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lenghtOfAnswer);
             }// Звуковой сигнал в сделку не входил(
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
