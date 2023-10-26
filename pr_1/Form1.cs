@@ -21,5 +21,28 @@ namespace pr_1
         {
 
         }
+
+        private void tmr_Tick(object sender, EventArgs e)
+        {
+            pct.Left = pct.Left + 20;
+            if (pct.Left + pct.Width >= this.Width)
+            {
+                tmr.Stop();
+
+                btnStart.Text = "Старт";
+                return;
+            }
+        }
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            tmr.Enabled = true;
+            tmr.Interval = 50;
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
