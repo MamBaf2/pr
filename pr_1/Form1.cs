@@ -29,6 +29,7 @@ namespace pr_1
             {
                 tmr.Stop();
                 btnStart.Text = "Старт";
+                pct.Left = 0;
                 return;
             }
         }
@@ -49,11 +50,9 @@ namespace pr_1
                 btnStart.Text = "Стоп";
                 //Устанавливает значение переменной(выполняется)
                 animation = true;
+                tmr.Interval = 50;
             }
-            if (tmr.Enabled)
-            {
-                pct.Left = 0;
-            }
+        
         }
 
         private void btnExit_Click(object sender, EventArgs e)
