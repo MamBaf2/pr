@@ -32,6 +32,8 @@
             this.btn = new System.Windows.Forms.Button();
             this.file1 = new System.Windows.Forms.OpenFileDialog();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.file2 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,12 +68,23 @@
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Имя файлОЧКА";
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(306, 249);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(143, 23);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Сохранение файлОЧКА";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(461, 326);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.pct);
@@ -90,6 +103,8 @@
         private System.Windows.Forms.Button btn;
         private System.Windows.Forms.OpenFileDialog file1;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.SaveFileDialog file2;
     }
 }
 
