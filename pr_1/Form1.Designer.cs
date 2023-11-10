@@ -31,6 +31,7 @@
             this.pct = new System.Windows.Forms.PictureBox();
             this.btn = new System.Windows.Forms.Button();
             this.file1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,12 +57,22 @@
             // 
             this.file1.FileName = "openFileDialog1";
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(12, 292);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(88, 13);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Имя файлОЧКА";
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(461, 326);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.pct);
             this.Name = "form";
@@ -69,6 +80,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pct)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -77,6 +89,7 @@
         private System.Windows.Forms.PictureBox pct;
         private System.Windows.Forms.Button btn;
         private System.Windows.Forms.OpenFileDialog file1;
+        private System.Windows.Forms.Label lblName;
     }
 }
 

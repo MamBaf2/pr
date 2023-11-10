@@ -28,6 +28,7 @@ namespace pr_1
             file1.ShowDialog();
             fname = file1.FileName;
             pct.Image = Image.FromFile(fname);
+            lblName.Text = fname;
         }
     }
 }
