@@ -34,6 +34,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.file2 = new System.Windows.Forms.SaveFileDialog();
+            this.btnForm2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,12 +79,23 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnForm2
+            // 
+            this.btnForm2.Location = new System.Drawing.Point(347, 89);
+            this.btnForm2.Name = "btnForm2";
+            this.btnForm2.Size = new System.Drawing.Size(87, 102);
+            this.btnForm2.TabIndex = 4;
+            this.btnForm2.Text = "Перейти к другой формОЧКЕ";
+            this.btnForm2.UseVisualStyleBackColor = true;
+            this.btnForm2.Click += new System.EventHandler(this.btnForm2_Click);
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(461, 326);
+            this.Controls.Add(this.btnForm2);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btn);
@@ -105,6 +117,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.SaveFileDialog file2;
+        private System.Windows.Forms.Button btnForm2;
     }
 }
 

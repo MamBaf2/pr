@@ -50,5 +50,11 @@ namespace pr_1
                 pct.Image.Save(file2.FileName);
             }
         }
+
+        private void btnForm2_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(); // Создание экземпляра Form2
+            form2.Show(); // Открыть Form2
+        }
     }
 }
