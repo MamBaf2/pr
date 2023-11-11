@@ -87,5 +87,20 @@ namespace pr_1
             // Закрываем текущую форму
             this.Close();
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
