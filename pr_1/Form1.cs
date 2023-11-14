@@ -20,7 +20,7 @@ namespace pr_1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+                                
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -73,6 +73,25 @@ namespace pr_1
                 }
                 btnSort.Enabled = false; //Блокировка кнопки сортировки
             }
+        }
+        private void ClearFields()
+        {
+            lblArr.Text = "";
+            lblResult.Text = "";
+            txtMax.Text = "";
+            txtMin.Text = "";
+            btnSort.Enabled = false; //Блокировка кнопки сортировки
+        }
+
+        private void btnForm_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(); // Создание экземпляра Form2
+            form2.Show(); // Открыть Form2
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }
