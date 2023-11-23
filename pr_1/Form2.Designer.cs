@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnForm = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -57,16 +56,7 @@
             this.btnClear.TabIndex = 21;
             this.btnClear.Text = "Очистить массив";
             this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // btnForm
-            // 
-            this.btnForm.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnForm.Location = new System.Drawing.Point(8, 322);
-            this.btnForm.Name = "btnForm";
-            this.btnForm.Size = new System.Drawing.Size(111, 26);
-            this.btnForm.TabIndex = 20;
-            this.btnForm.Text = "Форма 2";
-            this.btnForm.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // groupBox3
             // 
@@ -188,6 +178,7 @@
             this.btnExit.TabIndex = 14;
             this.btnExit.Text = "Выход";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSort
             // 
@@ -199,6 +190,7 @@
             this.btnSort.TabIndex = 15;
             this.btnSort.Text = "Сортировка";
             this.btnSort.UseVisualStyleBackColor = false;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // btnNewArr
             // 
@@ -209,6 +201,7 @@
             this.btnNewArr.TabIndex = 16;
             this.btnNewArr.Text = "Новый массив";
             this.btnNewArr.UseVisualStyleBackColor = false;
+            this.btnNewArr.Click += new System.EventHandler(this.btnNewArr_Click);
             // 
             // Form2
             // 
@@ -216,7 +209,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 406);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnForm);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -238,7 +230,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnForm;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.GroupBox groupBox2;
