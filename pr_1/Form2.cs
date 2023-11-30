@@ -20,40 +20,42 @@ namespace pr_1
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
-            //считаем с формы требуемые значения
+            // Объявление переменных для минимального значения X, максимального значения X и шага
             double Xmin = double.Parse(txtMin.Text);
             double Xmax = double.Parse(txtMax.Text);
             double Step = double.Parse(txtStep.Text);
 
-            //количество точек графика
+            // Вычисление количества шагов по формуле (максимальное значение - минимальное значение) / шаг + 1
             int count = (int)Math.Ceiling((Xmax - Xmin) / Step) + 1;
 
-            //массив значений X - общий для обоих графиков
+            // Создание массивов для значений X-общий, y1 (синус) и y2 (косинус).
             double[] X = new double[count];
             double[] y1 = new double[count];
             double[] y2 = new double[count];
-            double b = 12.6; // добавлено для использования в формулах
+            // добавлено для использования в формулах
+            double b = 12.6;
 
-            //рассчитываем точки для графиков функции
+            // Цикл для заполнения массивов значениями
             for (int i = 0; i < count; i++)
             {
-                //вычисляем значение X
+                // Вычисление каждого значения X, мы устанавливаем значение X[i] в Xmin, увеличивая его на Step с каждой итерацией
                 X[i] = Xmin + Step * i;
 
-                //вычисляем значение функций в точке X
-                y1[i] = 15.28 * Math.Pow(Math.Abs(X[i]), 1.5) + Math.Cos(Math.Log(Math.Abs(X[i])) + b);
+                // Вычисляем значение функции y1 в точке X. Функция y1(X) = 15.28 * |X|^-1.5 + cos(ln(|X|) + b).
+                y1[i] = 15.28 * Math.Pow(Math.Abs(X[i]), -1.5) + Math.Cos(Math.Log(Math.Abs(X[i])) + b);
+                //Вычисляем значение функции y2 в точке X.  Функция y2(X) = (X^2 + 2X - 7) / sqrt(X + 100)
                 y2[i] = (Math.Pow(X[i], 2) + 2 * X[i] - 7) / Math.Sqrt(X[i] + 100);
             }
 
-            //настраиваем оси графика
+            // Устанавливаем минимальное значение по оси X для первой области диаграммы
             chart1.ChartAreas[0].AxisX.Minimum = Xmin;
+            // Устанавливаем максимальное значение по оси X для первой области диаграммы
             chart1.ChartAreas[0].AxisX.Maximum = Xmax;
-
-            //определяем шаг сетки 
+            // Устанавливаем интервал основной сетки по оси X для первой области диаграммы
             chart1.ChartAreas[0].AxisX.MajorGrid.Interval = Step;
-
-            //добавляем вычисленные значения в графики
+            // Привязываем данные массива X и y1 к первой серии диаграммы
             chart1.Series[0].Points.DataBindXY(X, y1);
+            // Привязываем данные массива X и y2 ко второй серии диаграммы
             chart1.Series[1].Points.DataBindXY(X, y2);
         }
     }
