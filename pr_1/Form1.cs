@@ -28,31 +28,44 @@ namespace pr_1
             double Xmin = double.Parse(txtMin.Text);
             double Xmax = double.Parse(txtMax.Text);
             double Step = double.Parse(txtStep.Text);
-            // Вычисление количества шагов по формуле (максимальное значение - минимальное значение) / шаг + 1.
-            int count = (int)Math.Ceiling((Xmax - Xmin) / Step)
-                + 1;
-            // Создание массивов для значений X-общий, y1 (синус) и y2 (косинус).
+
+            int count;
+
+            if (Step > 0)
+            {
+                count = (int)Math.Ceiling((Xmax - Xmin) / Step) + 1;
+            }
+            else if (Step < 0)
+            {
+                count = (int)Math.Ceiling((Xmin - Xmax) / Math.Abs(Step)) + 1;
+                double temp = Xmax;
+                Xmax = Xmin;
+                Xmin = temp;
+            }
+            else
+            {
+                // Обработка случая, когда Step = 0, если это нужно
+                return;
+            }
+            Step = Math.Abs(Step);
+
             double[] X = new double[count];
             double[] y1 = new double[count];
             double[] y2 = new double[count];
-            // Цикл для заполнения массивов значениями
+            double b = 12.6;
+
             for (int i = 0; i < count; i++)
             {
-               // Вычисление каждого значения X в соответствии с шагом.
                 X[i] = Xmin + Step * i;
-                // Заполнение массивов значениями синуса и косинуса для соответствующих X.
-                y1[i] = Math.Sin(X[i]);
-                y2[i] = Math.Cos(X[i]);
+
+                y1[i] = 15.28 * Math.Pow(Math.Abs(X[i]), -1.5) + Math.Cos(Math.Log(Math.Abs(X[i])) + b);
+                y2[i] = (Math.Pow(X[i], 2) + 2 * X[i] - 7) / Math.Sqrt(X[i] + 100);
             }
-            // Устанавливаем минимальное значение по оси X для первой области диаграммы
+
             chart1.ChartAreas[0].AxisX.Minimum = Xmin;
-            // Устанавливаем максимальное значение по оси X для первой области диаграммы
             chart1.ChartAreas[0].AxisX.Maximum = Xmax;
-            // Устанавливаем интервал основной сетки по оси X для первой области диаграммы
             chart1.ChartAreas[0].AxisX.MajorGrid.Interval = Step;
-            // Привязываем данные массива X и y1 к первой серии диаграммы
             chart1.Series[0].Points.DataBindXY(X, y1);
-            // Привязываем данные массива X и y2 ко второй серии диаграммы
             chart1.Series[1].Points.DataBindXY(X, y2);
         }
 
