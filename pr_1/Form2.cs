@@ -19,6 +19,8 @@ namespace pr_1
 
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
+            //изменение цвета фона
+            this.BackColor = Color.LightGray;
             //создание объекта graphics
             Graphics g = e.Graphics;
             //Создание пера для рисования линий
